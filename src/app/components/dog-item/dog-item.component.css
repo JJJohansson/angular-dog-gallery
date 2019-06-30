@@ -1,0 +1,12 @@
+img {
+    /* margin: 5px 0px 5px 0px; */
+    width: 100% !important;
+    height: auto !important;
+    transition: transform .15s; /* Animation */
+    border: 3px solid black;
+}
+
+img:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
