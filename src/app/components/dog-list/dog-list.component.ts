@@ -9,6 +9,7 @@ import { Dog } from '../../models/Dog';
 })
 export class DogListComponent implements OnInit {
   @Input() dogs: Dog[] = [];
+  @Input() path: string;
 
   constructor(private dogService: DogService) { }
 

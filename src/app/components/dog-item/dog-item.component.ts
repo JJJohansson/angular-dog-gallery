@@ -9,8 +9,8 @@ import { Dog } from '../../models/Dog';
 })
 export class DogItemComponent implements OnInit {
   @Input() dog: Dog;
+  @Input() path: string;
   @Output() searchResult: EventEmitter<Dog[]> = new EventEmitter();
-
   url: string;
 
   constructor(private dogService: DogService) {
@@ -18,15 +18,15 @@ export class DogItemComponent implements OnInit {
 
   ngOnInit() {
     this.dogService.getDog(this.dog.breed).subscribe(dogs => {
-      this.dog.url ? this.url = this.dog.url : this.url = dogs.message[0];
+      const rng: number = Math.floor(Math.random() * dogs.message.length) + 0;
+      this.dog.url ? this.url = this.dog.url : this.url = dogs.message[rng];
     });
   }
 
-  loadByBreed() {
-    this.dogService.getDog(this.dog.breed).subscribe(response => {
-      let dogs: Dog[] = [];
-      for (let url of response.message) dogs.push(new Dog(this.dog.breed, url));
-      this.searchResult.emit(dogs);
-    })
+  open(event) {
+    const url: string = event.target.src;
+    console.log(event.target.src)
+    var win = window.open(url, '_blank');
+    win.focus();
   }
 }

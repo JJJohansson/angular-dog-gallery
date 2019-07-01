@@ -1,1 +1,8 @@
-<img (click)="loadByBreed()" [alt]="dog.breed" [src]="url" />
+<div class="container" [routerLink]="['/breed', dog.breed]">
+    <div *ngIf="!path; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <img [alt]="dog.breed" [src]="url" />
+        <div class="img-title">{{ dog.breed }}</div>
+    </ng-template>
+    <ng-template #elseBlock><img [alt]="dog.breed" [src]="url" (click)="open($event)" /></ng-template>
+</div>

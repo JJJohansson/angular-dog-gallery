@@ -2,6 +2,7 @@
     <app-dog-item
         *ngFor="let dog of dogs"
         [dog]="dog"
+        [path]="path"
         (searchResult)="onSearchResult($event)"
     >
     </app-dog-item>

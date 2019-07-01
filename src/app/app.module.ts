@@ -7,17 +7,17 @@ import { DogService } from './services/dog.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DogsComponent } from './components/dogs/dogs.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DogItemComponent } from './components/dog-item/dog-item.component';
 import { DogListComponent } from './components/dog-list/dog-list.component';
+import { BreedComponent } from './components/pages/breed/breed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DogsComponent,
-    SearchBarComponent,
     DogItemComponent,
     DogListComponent,
+    BreedComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,4 +27,5 @@ import { DogListComponent } from './components/dog-list/dog-list.component';
   providers: [DogService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

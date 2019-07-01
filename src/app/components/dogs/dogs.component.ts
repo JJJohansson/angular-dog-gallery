@@ -9,7 +9,6 @@ import { Dog } from '../../models/Dog';
   styleUrls: ['./dogs.component.css']
 })
 export class DogsComponent implements OnInit {
-
   dogs: Dog[] = [];
 
   constructor(private dogService: DogService) { }
@@ -18,9 +17,5 @@ export class DogsComponent implements OnInit {
     this.dogService.getDogs().subscribe(response => {
       for (let dog in response.message) this.dogs.push(new Dog(dog));
     })
-  }
-
-  onSearchResult(dogs: Dog[]) {
-    if (dogs) this.dogs = dogs;
   }
 }
